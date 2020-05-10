@@ -27,10 +27,64 @@ public class EnginnerTest {
         return javaEnginnerList;
     }
 
+
+    public List getEngineersByJob(List<Enginner> enginnerList , String job){
+        List targetEngineerList = new ArrayList();
+        for (Enginner enginner: enginnerList) {
+            if (job.equals(enginner.getJob())){
+                targetEngineerList.add(enginner);
+            }
+        }
+        return targetEngineerList;
+    }
+
+    public List findEnginner(List<Enginner> enginnerList, EnginnerFilter filter){
+        List targetEngineerList = new ArrayList();
+        for (Enginner enginner: enginnerList) {
+            if (filter.getMatchedEnginner(enginner)){
+                targetEngineerList.add(enginner);
+            }
+        }
+        return targetEngineerList;
+    }
+
+    public List getEngineersByJobAndAge(List<Enginner> enginnerList , String job,int age){
+        List targetEngineerList = new ArrayList();
+        for (Enginner enginner: enginnerList) {
+            if (job.equals(enginner.getJob()) && enginner.getAge() > age){
+                targetEngineerList.add(enginner);
+            }
+        }
+        return targetEngineerList;
+    }
+
     public static void main(String[] args) {
-        List<Enginner> enginnerList = Arrays.asList(new Enginner("Java", 18), new Enginner("GO", 20), new Enginner("Python", 15), new Enginner("DBA", 15),new Enginner("Java", 25));
+        List<Enginner> enginnerList = Arrays.asList(new Enginner("Java", 18), new Enginner("GO", 20), new Enginner("Python", 15), new Enginner("DBA", 15),new Enginner("Java", 30));
         EnginnerTest enginnerTest= new EnginnerTest();
         List javaEngineers = enginnerTest.getJavaEngineers(enginnerList);
         System.out.println(javaEngineers);
+
+        List targetEngineerList = enginnerTest.getEngineersByJob(enginnerList,"Java");
+        System.out.println(targetEngineerList);
+
+
+        List targetEngineerList2 = enginnerTest.getEngineersByJob(enginnerList,"GO");
+        System.out.println(targetEngineerList2);
+
+        List targetEngineerList3 = enginnerTest.getEngineersByJobAndAge(enginnerList,"Java",25);
+        System.out.println(targetEngineerList3);
+
+        System.out.println("===================================");
+
+
+        List targetEngineerList4 = enginnerTest.findEnginner(enginnerList,new AgeGte30JavaEnginnerFilter());
+        System.out.println(targetEngineerList4);
+
+        List targetEngineerList5 = enginnerTest.findEnginner(enginnerList,new JavaEnginnerFilter());
+        System.out.println(targetEngineerList5);
+
+
+
+
     }
 }
