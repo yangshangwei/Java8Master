@@ -102,9 +102,7 @@ public class EnginnerTest {
 //        System.out.println(targetEngineerList6);
 
 
-        List targetEngineerList7 = enginnerTest.findEnginner(enginnerList,engineer -> {
-            return "Java".equals(engineer.getJob());
-        });
+        List targetEngineerList7 = enginnerTest.findEnginner(enginnerList,engineer ->  "Java".equals(engineer.getJob()) );
         System.out.println(targetEngineerList7);
 
     }

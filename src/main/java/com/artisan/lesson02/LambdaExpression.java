@@ -51,6 +51,18 @@ public class LambdaExpression {
         Predicate<Enginner>  predicate= (Enginner e) -> e.getAge() > 30 ;
 
 
+        // 使用lambda
+        Runnable r1 = () -> System.out.println("Hello artisan Lambda");
+
+        // 使用匿名内部类
+        Runnable r2 = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello artisan Inner");
+            }
+        };
+        r1.run();
+        r2.run();
     }
 
 }
