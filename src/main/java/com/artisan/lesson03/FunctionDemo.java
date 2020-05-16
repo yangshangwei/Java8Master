@@ -49,6 +49,16 @@ public class FunctionDemo {
         Comparator<Enginner> enginnerComparator = (e1, e2) -> e1.getJob().compareTo(e2.getJob());
         ToIntBiFunction<Enginner, Enginner> toIntBiFunction = (e1, e2) -> e1.getJob().compareTo(e2.getJob());
         BiFunction<Enginner, Enginner, Integer> toIntFunction = (e1, e2) -> e1.getJob().compareTo(e2.getJob());
+
+        // 如果一个Lambda的主体是一个语句表达式， 它就和一个返回 void 的函数描述符兼容（当然需要参数列表也兼容
+        List<String> stringList = new ArrayList<>();
+        // Predicate返回了一个boolean
+        Predicate<String> predicate = s -> stringList.add(s);
+        // Consumer返回了一个void
+        Consumer<String> consumer =    s -> stringList.add(s);
+
     }
+
+
 
 }
