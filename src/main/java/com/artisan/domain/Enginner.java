@@ -13,6 +13,17 @@ public class Enginner {
     private String job;
     private int age;
 
+    public Enginner() {
+    }
+
+    public Enginner(int age) {
+        this.age = age;
+    }
+
+    public Enginner(String job) {
+        this.job = job;
+    }
+
     public Enginner(String job, int age) {
         this.job = job;
         this.age = age;
