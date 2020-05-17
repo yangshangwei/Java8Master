@@ -30,10 +30,14 @@ public class LambdaExpression {
         };
 
         enginnerComparator.compare(new Enginner("Java",18),new Enginner("Go",10));
-
         List<Enginner> enginnerList = Arrays.asList(new Enginner("Java",18),new Enginner("Go",10));
+        System.out.println("0enginnerList:" + enginnerList);
+
         enginnerList.sort(enginnerComparator);
-        System.out.println("enginnerList:" + enginnerList);
+        System.out.println("1enginnerList:" + enginnerList);
+
+        enginnerList.sort(Comparator.comparing(Enginner::getJob));
+        System.out.println("2enginnerList:" + enginnerList);
 
 
         Comparator<Enginner> comparator = (Enginner o1, Enginner o2) -> o1.getJob().compareTo(o2.getJob());
@@ -63,6 +67,12 @@ public class LambdaExpression {
         };
         r1.run();
         r2.run();
+
+
+        Comparator<Enginner> comparator3 = ( o1,  o2) -> o1.getJob().compareTo(o2.getJob());
+
+
+
     }
 
 }
