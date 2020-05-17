@@ -57,6 +57,10 @@ public class FunctionDemo {
         // Consumer返回了一个void
         Consumer<String> consumer =    s -> stringList.add(s);
 
+        Runnable o = () -> {System.out.println("Tricky example"); };
+
+        int num = 1;
+        Runnable runnable = ()->System.out.println(num);
     }
 
 
